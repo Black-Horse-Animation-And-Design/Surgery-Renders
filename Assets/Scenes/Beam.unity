@@ -478,9 +478,17 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6944195082225452269, guid: a631fed122251ba47a2a9da56dbb70ad, type: 3}
+      propertyPath: m_RayTraceProcedural
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944195082225452269, guid: a631fed122251ba47a2a9da56dbb70ad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b4b42d034a945884b81d7fe698562026, type: 2}
+    - target: {fileID: 6944195082225452269, guid: a631fed122251ba47a2a9da56dbb70ad, type: 3}
+      propertyPath: m_RayTracingAccelStructBuildFlagsOverride
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 19906102306272989, guid: a631fed122251ba47a2a9da56dbb70ad, type: 3}
