@@ -12,12 +12,13 @@ public class ScreenshotCamera : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] Transform pivot;
     [SerializeField] bool rotates, moves;
-    [SerializeField] float rotateSpeed = .2f, moveSpeed = .5f;
+    [SerializeField] float rotateSpeed = .2f, moveSpeed = 5f;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] bool lockCursor = true;
+    [SerializeField] float smoothTime = 0.1f; // Smooth movement time
 
     Vector3 input;
-    Vector3 direction;
+    Vector3 currentVelocity;
 
     float yaw;
     float pitch;
@@ -38,6 +39,9 @@ public class ScreenshotCamera : MonoBehaviour
     {
         HandleMovementInput();
         HandleMouseLook();
+
+        if (Input.GetKeyDown(KeyCode.P)) // Example key for screenshot
+            TakeScreenshot();
     }
 
     private void FixedUpdate()
@@ -46,7 +50,10 @@ public class ScreenshotCamera : MonoBehaviour
             pivot.Rotate(Vector3.up * rotateSpeed);
 
         if (moves)
-            transform.position += input * Time.deltaTime * moveSpeed;
+        {
+            Vector3 targetPosition = transform.position + input * moveSpeed * Time.fixedDeltaTime;
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime);
+        }
     }
 
     void HandleMovementInput()

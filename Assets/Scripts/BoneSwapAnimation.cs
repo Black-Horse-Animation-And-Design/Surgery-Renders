@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BoneSwapAnimation : MonoBehaviour
+public class VisiblitySwapAnimation : MonoBehaviour
 {
     [SerializeField] GameObject[] objectsToToggleOn, objectsToToggleOff;
     public void ToggleObjects(int index)
