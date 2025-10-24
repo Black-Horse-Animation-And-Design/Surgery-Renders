@@ -20,8 +20,8 @@ public class ScreenshotCamera : MonoBehaviour
     Vector3 input;
     Vector3 currentVelocity;
 
-    float yaw;
-    float pitch;
+    float yaw, yawGoal;
+    float pitch, pitchGoal;
 
     private void Start()
     {
@@ -71,9 +71,11 @@ public class ScreenshotCamera : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        yaw += mouseX;
-        pitch -= mouseY;
-        pitch = Mathf.Clamp(pitch, -89f, 89f);
+        yawGoal += mouseX;
+        pitchGoal -= mouseY;
+        pitchGoal = Mathf.Clamp(pitchGoal, -89f, 89f);
+        yaw = Mathf.Lerp(yaw, yawGoal, 1 * Time.deltaTime);
+        pitch = Mathf.Lerp(yaw, yawGoal, 1 * Time.deltaTime);
 
         transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
     }
