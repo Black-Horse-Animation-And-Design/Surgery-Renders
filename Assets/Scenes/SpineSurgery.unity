@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: af421a38ec2b8ef4681c74afddeb6d0f, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ee2d11691bfc5384b89d821ffe96a394, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializedBakingSet: {fileID: 0}
+  serializedBakingSet: {fileID: 11400000, guid: 418dc9a4bae64fe40b45512bddd70f6d, type: 2}
   sceneGUID: 6a246339df007764ab674b7ae2dcd5f9
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
@@ -783,7 +783,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: 3a73a6cff18db334e99c4adc2cd6f78a, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 2341cc181e3de5048a8eb40bdbc7ef6e, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -863,35 +863,35 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 0
+  m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0
-    'sh[ 1]': 0
-    'sh[ 2]': 0
-    'sh[ 3]': 0
-    'sh[ 4]': 0
-    'sh[ 5]': 0
-    'sh[ 6]': 0
-    'sh[ 7]': 0
-    'sh[ 8]': 0
-    'sh[ 9]': 0
-    'sh[10]': 0
-    'sh[11]': 0
-    'sh[12]': 0
-    'sh[13]': 0
-    'sh[14]': 0
-    'sh[15]': 0
-    'sh[16]': 0
-    'sh[17]': 0
-    'sh[18]': 0
-    'sh[19]': 0
-    'sh[20]': 0
-    'sh[21]': 0
-    'sh[22]': 0
-    'sh[23]': 0
-    'sh[24]': 0
-    'sh[25]': 0
-    'sh[26]': 0
+    'sh[ 0]': 6641.1987
+    'sh[ 1]': -3096.0642
+    'sh[ 2]': -368.22235
+    'sh[ 3]': 610.6114
+    'sh[ 4]': 312.48587
+    'sh[ 5]': -454.0678
+    'sh[ 6]': 136.99886
+    'sh[ 7]': -806.60614
+    'sh[ 8]': -29.586624
+    'sh[ 9]': 5854.9966
+    'sh[10]': -2371.2063
+    'sh[11]': -520.20483
+    'sh[12]': 706.90607
+    'sh[13]': 414.8071
+    'sh[14]': -329.7213
+    'sh[15]': 157.5555
+    'sh[16]': -816.3189
+    'sh[17]': 63.679657
+    'sh[18]': 4774.529
+    'sh[19]': -1278.3457
+    'sh[20]': -754.63806
+    'sh[21]': 923.35864
+    'sh[22]': 487.9697
+    'sh[23]': -178.2691
+    'sh[24]': 187.3775
+    'sh[25]': -849.7007
+    'sh[26]': 232.11685
   m_SHValidForCapturePosition: {x: 12.253946, y: 65.47366, z: 173.95264}
   m_SHValidForSourcePosition: {x: 12.253946, y: 65.47366, z: 173.95264}
   m_HDProbeVersion: 9
@@ -2176,35 +2176,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cded085d155cde949b60f67a11dbc3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
+  mode: 2
   size: {x: 124.19759, y: 200.63022, z: 664.1741}
   overrideRendererFilters: 0
   minRendererVolumeSize: 0.1
   objectLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  lowestSubdivLevelOverride: 3
-  highestSubdivLevelOverride: 2
-  overridesSubdivLevels: 0
-  mightNeedRebaking: 1
+  lowestSubdivLevelOverride: 1
+  highestSubdivLevelOverride: 3
+  overridesSubdivLevels: 1
+  mightNeedRebaking: 0
   cachedTransform:
     e00: 1
     e01: 0
     e02: 0
-    e03: -4.8467536
+    e03: -14.749577
     e10: 0
     e11: 1
     e12: 0
-    e13: -0.67257017
+    e13: -98.81511
     e20: 0
     e21: 0
     e22: 1
-    e23: 15.434701
+    e23: 10.793854
     e30: 0
     e31: 0
     e32: 0
     e33: 1
-  cachedHashCode: -1013598373
+  cachedHashCode: -1037676690
   fillEmptySpaces: 0
   version: 2
   globalVolume: 0
