@@ -465,6 +465,16 @@ MonoScript:
   m_ClassName: SceneObjectIDMapSceneAsset
   m_Namespace: UnityEngine.Rendering.HighDefinition
   m_AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
+--- !u!1 &488026584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2989514737169801599, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
+  m_PrefabInstance: {fileID: 1147594053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &568766122 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2443718427122977417, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
+  m_PrefabInstance: {fileID: 1147594053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &720476593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1280,6 +1290,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3bdfc6c40991ced46a67f868f97c55e4, type: 2}
+    - target: {fileID: -935062877271594105, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -137117372853588592, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1356,6 +1370,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2a6dee15824aa794fbbaecf3e34f45b5, type: 2}
+    - target: {fileID: 2989514737169801599, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3055313404070048348, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -2299,6 +2317,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 095bd6fd92401d0498f2a0aac6319bb4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2101055547}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 095bd6fd92401d0498f2a0aac6319bb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101055548}
   m_SourcePrefab: {fileID: 100100000, guid: 095bd6fd92401d0498f2a0aac6319bb4, type: 3}
 --- !u!1 &2101055546 stripped
 GameObject:
@@ -2327,6 +2348,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2101055548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101055546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47931b6e4c0b07440825bc90bedbfb59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoneSwapAnimation
+  objectsToToggleOn:
+  - {fileID: 488026584}
+  objectsToToggleOff:
+  - {fileID: 568766122}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
