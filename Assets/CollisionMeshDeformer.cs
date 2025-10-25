@@ -2,100 +2,108 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshCollider))]
-public class DrillMeshFracture : MonoBehaviour
+public class DrillMeshFractureFast : MonoBehaviour
 {
-    [Header("Deformation Settings")]
-    [SerializeField] float deformRadius = 1f;
-    [SerializeField] float deformStrength = 10f;
-    [SerializeField] float noiseScale = 10f;
-    [SerializeField] bool autoRecalculateNormals = true;
+    [Header("Deformation")]
+    [SerializeField] float deformRadius = 0.2f;
+    [SerializeField] float deformStrength = 0.8f;
+    [SerializeField] float noiseScale = 5f;
+    [SerializeField] bool updateCollider = false;
+    [SerializeField] float colliderUpdateDelay = 0.5f;
 
-    [Header("Fracture Settings")]
-    [SerializeField] float fractureThreshold = 1.5f;
-    [SerializeField] float chunkSize = 0.05f;
-    [SerializeField] float chunkForce = 5f;
+    [Header("Fracture")]
+    [SerializeField] float fractureThreshold = 0.4f;
+    [SerializeField] float chunkSize = 0.04f;
+    [SerializeField] float chunkForce = 6f;
+    [SerializeField] int maxChunksPerHit = 3;
 
-    Mesh _mesh;
-    Vector3[] _originalVerts;
-    Vector3[] _deformedVerts;
-    Vector3[] _originalNormals;
-    MeshCollider _meshCollider;
-
-    // Track fractured vertices to avoid infinite chunk spam
+    MeshFilter filter;
+    MeshCollider col;
+    Mesh mesh;
+    Vector3[] verts;
+    Vector3[] normals;
+    Vector3[] originalVerts;
     HashSet<int> fracturedVerts = new HashSet<int>();
+    float colliderTimer;
 
-    void Awake()
+    void Start()
     {
-        _mesh = GetComponent<MeshFilter>().mesh;
-        _originalVerts = _mesh.vertices;
-        _originalNormals = _mesh.normals;
-        _deformedVerts = new Vector3[_originalVerts.Length];
-        _originalVerts.CopyTo(_deformedVerts, 0);
+        filter = GetComponent<MeshFilter>();
+        col = GetComponent<MeshCollider>();
+        mesh = filter.mesh;
 
-        _meshCollider = GetComponent<MeshCollider>();
-        _meshCollider.sharedMesh = _mesh;
+        verts = mesh.vertices;
+        normals = mesh.normals;
+        originalVerts = mesh.vertices;
     }
 
     void OnCollisionStay(Collision collision)
     {
-        DeformAtContacts(collision.contacts);
+        foreach (var contact in collision.contacts)
+            Deform(contact.point, contact.normal);
     }
 
-    void DeformAtContacts(ContactPoint[] contacts)
+    void Deform(Vector3 worldPoint, Vector3 normal)
     {
-        bool modified = false;
+        Vector3 local = transform.InverseTransformPoint(worldPoint);
+        float rSqr = deformRadius * deformRadius;
 
-        foreach (var contact in contacts)
+        // quick spatial filter
+        Bounds bounds = new Bounds(local, Vector3.one * deformRadius * 2);
+
+        int chunksSpawned = 0;
+
+        for (int i = 0; i < verts.Length; i++)
         {
-            Vector3 localPoint = transform.InverseTransformPoint(contact.point);
+            Vector3 v = verts[i];
+            if (!bounds.Contains(v)) continue;
 
-            for (int i = 0; i < _deformedVerts.Length; i++)
+            float distSqr = (v - local).sqrMagnitude;
+            if (distSqr > rSqr) continue;
+
+            float dist = Mathf.Sqrt(distSqr);
+            float t = dist / deformRadius;
+            float influence = 1f - (t * t * (3f - 2f * t));
+            float noise = Mathf.PerlinNoise(v.x * noiseScale, v.y * noiseScale);
+
+            Vector3 dir = -normals[i];
+            verts[i] += dir * deformStrength * influence * noise;
+
+            if ((verts[i] - originalVerts[i]).sqrMagnitude > fractureThreshold * fractureThreshold
+                && !fracturedVerts.Contains(i) && chunksSpawned < maxChunksPerHit)
             {
-                Vector3 v = _deformedVerts[i];
-                float dist = Vector3.Distance(v, localPoint);
-                if (dist > deformRadius) continue;
-
-                float t = dist / deformRadius;
-                float influence = 1f - (t * t * (3f - 2f * t)); // smooth falloff
-                float noise = Mathf.PerlinNoise(v.x * noiseScale, v.y * noiseScale) * 0.5f + 0.5f;
-
-                Vector3 dir = -_originalNormals[i];
-                _deformedVerts[i] += dir * deformStrength * influence * noise;
-
-                // Check for fracture threshold
-                if ((_deformedVerts[i] - _originalVerts[i]).magnitude > fractureThreshold && !fracturedVerts.Contains(i))
-                {
-                    SpawnChunk(i, contact.point);
-                    fracturedVerts.Add(i);
-                }
-
-                modified = true;
+                SpawnChunk(i, worldPoint, normal);
+                fracturedVerts.Add(i);
+                chunksSpawned++;
             }
         }
 
-        if (modified)
-        {
-            _mesh.vertices = _deformedVerts;
-            if (autoRecalculateNormals)
-                _mesh.RecalculateNormals();
-            _mesh.RecalculateBounds();
+        mesh.vertices = verts;
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
 
-            _meshCollider.sharedMesh = null;
-            _meshCollider.sharedMesh = _mesh;
+        // only update collider occasionally
+        colliderTimer += Time.deltaTime;
+        if (Random.Range(0f, 1f) > 0.8f)
+        {
+            if (updateCollider && colliderTimer >= colliderUpdateDelay)
+            {
+                colliderTimer = 0;
+                col.sharedMesh = null;
+                col.sharedMesh = mesh;
+            }
         }
     }
 
-    void SpawnChunk(int vertexIndex, Vector3 contactPoint)
+    void SpawnChunk(int i, Vector3 point, Vector3 normal)
     {
-        GameObject chunk = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        chunk.transform.position = transform.TransformPoint(_deformedVerts[vertexIndex]);
-        chunk.transform.localScale = Vector3.one * chunkSize;
 
-        Rigidbody rb = chunk.AddComponent<Rigidbody>();
-        Vector3 forceDir = (chunk.transform.position - contactPoint).normalized;
-        rb.AddForce(forceDir * chunkForce, ForceMode.Impulse);
-
-        Destroy(chunk.GetComponent<Collider>(), 5f);
-        Destroy(chunk, 10f);
+        GameObject c = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        c.transform.position = transform.TransformPoint(verts[i]);
+        c.transform.localScale = Vector3.one * chunkSize;
+        Rigidbody rb = c.AddComponent<Rigidbody>();
+        rb.AddForce((verts[i].normalized + normal) * chunkForce, ForceMode.Impulse);
+        Destroy(c.GetComponent<Collider>(), 5f);
+        Destroy(c, 10f);
     }
 }
