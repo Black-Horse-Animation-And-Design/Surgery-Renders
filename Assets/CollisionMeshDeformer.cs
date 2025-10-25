@@ -15,17 +15,13 @@ public class DrillMeshFracture : MonoBehaviour
     [SerializeField] float chunkSize = 0.05f;
     [SerializeField] float chunkForce = 5f;
 
-    [Header("Drill Reference")]
-    [SerializeField] Transform drill;
-    [SerializeField] Collider drillCollider;
-
     Mesh _mesh;
     Vector3[] _originalVerts;
     Vector3[] _deformedVerts;
     Vector3[] _originalNormals;
     MeshCollider _meshCollider;
 
-    // Track which vertices already fractured
+    // Track fractured vertices to avoid infinite chunk spam
     HashSet<int> fracturedVerts = new HashSet<int>();
 
     void Awake()
@@ -38,77 +34,68 @@ public class DrillMeshFracture : MonoBehaviour
 
         _meshCollider = GetComponent<MeshCollider>();
         _meshCollider.sharedMesh = _mesh;
-
-        if (!drillCollider && drill != null)
-            drillCollider = drill.GetComponent<Collider>();
     }
 
-    void Update()
+    void OnCollisionStay(Collision collision)
     {
-        if (drill == null || drillCollider == null) return;
+        DeformAtContacts(collision.contacts);
+    }
 
-        Collider[] hits = Physics.OverlapSphere(drill.position, deformRadius);
-        bool touching = false;
-        foreach (var hit in hits)
+    void DeformAtContacts(ContactPoint[] contacts)
+    {
+        bool modified = false;
+
+        foreach (var contact in contacts)
         {
-            if (hit.gameObject == this.gameObject)
+            Vector3 localPoint = transform.InverseTransformPoint(contact.point);
+
+            for (int i = 0; i < _deformedVerts.Length; i++)
             {
-                touching = true;
-                break;
+                Vector3 v = _deformedVerts[i];
+                float dist = Vector3.Distance(v, localPoint);
+                if (dist > deformRadius) continue;
+
+                float t = dist / deformRadius;
+                float influence = 1f - (t * t * (3f - 2f * t)); // smooth falloff
+                float noise = Mathf.PerlinNoise(v.x * noiseScale, v.y * noiseScale) * 0.5f + 0.5f;
+
+                Vector3 dir = -_originalNormals[i];
+                _deformedVerts[i] += dir * deformStrength * influence * noise;
+
+                // Check for fracture threshold
+                if ((_deformedVerts[i] - _originalVerts[i]).magnitude > fractureThreshold && !fracturedVerts.Contains(i))
+                {
+                    SpawnChunk(i, contact.point);
+                    fracturedVerts.Add(i);
+                }
+
+                modified = true;
             }
         }
 
-        if (touching)
+        if (modified)
         {
-            DeformAroundPoint(drill.position);
+            _mesh.vertices = _deformedVerts;
+            if (autoRecalculateNormals)
+                _mesh.RecalculateNormals();
+            _mesh.RecalculateBounds();
+
+            _meshCollider.sharedMesh = null;
+            _meshCollider.sharedMesh = _mesh;
         }
     }
 
-    void DeformAroundPoint(Vector3 worldPoint)
+    void SpawnChunk(int vertexIndex, Vector3 contactPoint)
     {
-        Vector3 localPoint = transform.InverseTransformPoint(worldPoint);
-
-        for (int i = 0; i < _deformedVerts.Length; i++)
-        {
-            Vector3 v = _deformedVerts[i];
-            float dist = Vector3.Distance(v, localPoint);
-            if (dist > deformRadius) continue;
-
-            float t = dist / deformRadius;
-            float influence = 1f - (t * t * (3f - 2f * t));
-            float noise = Mathf.PerlinNoise(v.x * noiseScale, v.y * noiseScale) * 0.5f + 0.5f;
-
-            Vector3 dir = -_originalNormals[i];
-            _deformedVerts[i] += dir * deformStrength * influence * noise;
-
-            // Check for fracture
-            if ((_deformedVerts[i] - _originalVerts[i]).magnitude > fractureThreshold && !fracturedVerts.Contains(i))
-            {
-                SpawnChunk(i, worldPoint);
-                fracturedVerts.Add(i); // mark vertex as fractured
-            }
-        }
-
-        _mesh.vertices = _deformedVerts;
-        if (autoRecalculateNormals)
-            _mesh.RecalculateNormals();
-        _mesh.RecalculateBounds();
-
-        _meshCollider.sharedMesh = null;
-        _meshCollider.sharedMesh = _mesh;
-    }
-
-    void SpawnChunk(int vertexIndex, Vector3 drillWorldPos)
-    {
-        GameObject chunk = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        GameObject chunk = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         chunk.transform.position = transform.TransformPoint(_deformedVerts[vertexIndex]);
         chunk.transform.localScale = Vector3.one * chunkSize;
 
         Rigidbody rb = chunk.AddComponent<Rigidbody>();
-
-        Vector3 forceDir = (chunk.transform.position - drillWorldPos).normalized;
+        Vector3 forceDir = (chunk.transform.position - contactPoint).normalized;
         rb.AddForce(forceDir * chunkForce, ForceMode.Impulse);
 
         Destroy(chunk.GetComponent<Collider>(), 5f);
+        Destroy(chunk, 10f);
     }
 }
