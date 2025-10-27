@@ -1314,54 +1314,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!1 &964320702 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1349970040997857099, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-  m_PrefabInstance: {fileID: 1147594053}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &964320706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964320702}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156525d93eafcc045b3ec069cc5000ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DrillMeshFracture
-  deformRadius: 1
-  deformStrength: 10
-  noiseScale: 10
-  updateCollider: 0
-  colliderUpdateDelay: 0.5
-  fractureThreshold: 1.5
-  chunkSize: 0.05
-  chunkForce: 5
-  maxChunksPerHit: 3
---- !u!64 &964320707
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964320702}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -447511616260823930, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
 --- !u!1 &990475327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,6 +2829,10 @@ PrefabInstance:
       propertyPath: m_RayTracingMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6806753800300999618, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7016940979106066041, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -3048,12 +3004,6 @@ PrefabInstance:
       insertIndex: 4
       addedObject: {fileID: 162494139}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -1349970040997857099, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 964320707}
-    - targetCorrespondingSourceObject: {fileID: -1349970040997857099, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 964320706}
     - targetCorrespondingSourceObject: {fileID: 4798863207196914909, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1947646301}
