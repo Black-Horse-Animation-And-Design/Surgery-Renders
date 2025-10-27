@@ -35,6 +35,11 @@ public class ScreenshotCamera : MonoBehaviour
         pitch = transform.eulerAngles.x;
     }
 
+    public void StopApplication()
+    {
+        Application.Quit();
+    }
+
     private void Update()
     {
         HandleMovementInput();
