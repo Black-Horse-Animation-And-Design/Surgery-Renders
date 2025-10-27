@@ -603,7 +603,11 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+<<<<<<< Updated upstream
   - time: 11.966666
+=======
+  - time: 11.933333
+>>>>>>> Stashed changes
     functionName: 
     data: 
     objectReferenceParameter: {fileID: 0}
