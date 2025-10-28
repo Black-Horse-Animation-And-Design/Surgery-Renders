@@ -5,9 +5,9 @@ using UnityEngine;
 public class DrillMeshFractureFast : MonoBehaviour
 {
     [Header("Deformation")]
-    [SerializeField] float deformRadius = 0.2f;
-    [SerializeField] float deformStrength = 0.8f;
-    [SerializeField] float noiseScale = 5f;
+    [SerializeField] float deformRadius = 2.5f;
+    [SerializeField] float deformStrength = 0.1f;
+    [SerializeField] float noiseScale = 0f;
     [SerializeField] bool updateCollider = false;
     [SerializeField] float colliderUpdateDelay = 0.5f;
 
@@ -49,7 +49,6 @@ public class DrillMeshFractureFast : MonoBehaviour
         Vector3 local = transform.InverseTransformPoint(worldPoint);
         float rSqr = deformRadius * deformRadius;
 
-        // quick spatial filter
         Bounds bounds = new Bounds(local, Vector3.one * deformRadius * 2);
 
         int chunksSpawned = 0;
@@ -83,7 +82,6 @@ public class DrillMeshFractureFast : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
 
-        // only update collider occasionally
         colliderTimer += Time.deltaTime;
         if (Random.Range(0f, 1f) > 0.8f)
         {
@@ -98,7 +96,7 @@ public class DrillMeshFractureFast : MonoBehaviour
 
     void SpawnChunk(int i, Vector3 point, Vector3 normal)
     {
-        if (Random.Range(0f, 1f) < 0.5f) return;
+        if (Random.Range(0f, 1f) < 0.95f) return;
         GameObject c = Instantiate(gib);
         c.transform.position = transform.TransformPoint(verts[i]);
         c.transform.localScale = gib.transform.localScale * chunkSize;

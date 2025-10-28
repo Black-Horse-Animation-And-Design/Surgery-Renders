@@ -3060,15 +3060,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156525d93eafcc045b3ec069cc5000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DrillMeshFractureFast
-  deformRadius: 1.5
-  deformStrength: 2
-  noiseScale: 5
-  updateCollider: 1
+  deformRadius: 2.5
+  deformStrength: 0.1
+  noiseScale: 0
+  updateCollider: 0
   colliderUpdateDelay: 0.5
   fractureThreshold: 0.4
   chunkSize: 0.04
   chunkForce: 6
-  maxChunksPerHit: 3
+  maxChunksPerHit: 1
   gib: {fileID: 7587070649313846008, guid: 791ebbfc99b556d4a8133b86cde56834, type: 3}
 --- !u!64 &1309367282
 MeshCollider:
@@ -3492,15 +3492,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7bd46d39fd48ce4a8b0b2dfd9b0690d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 111.01
+      value: 111.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7bd46d39fd48ce4a8b0b2dfd9b0690d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 59.65
+      value: 67.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7bd46d39fd48ce4a8b0b2dfd9b0690d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.09
+      value: 33.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7bd46d39fd48ce4a8b0b2dfd9b0690d, type: 3}
       propertyPath: m_LocalRotation.w
