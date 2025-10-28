@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshCollider))]
-public class DrillMeshFractureFast : MonoBehaviour
+public class DrillMeshFractureDestroyFixed : MonoBehaviour
 {
     [Header("Deformation")]
     [SerializeField] float deformRadius = 2.5f;
@@ -16,6 +16,8 @@ public class DrillMeshFractureFast : MonoBehaviour
     [SerializeField] float chunkSize = 0.04f;
     [SerializeField] float chunkForce = 6f;
     [SerializeField] int maxChunksPerHit = 3;
+    [SerializeField] GameObject gibPrefab;
+    [SerializeField] float destroyPercent = 0.8f;
 
     MeshFilter filter;
     MeshCollider col;
@@ -23,9 +25,10 @@ public class DrillMeshFractureFast : MonoBehaviour
     Vector3[] verts;
     Vector3[] normals;
     Vector3[] originalVerts;
+    int[] tris;
+
     HashSet<int> fracturedVerts = new HashSet<int>();
     float colliderTimer;
-    [SerializeField] GameObject gib;
 
     void Start()
     {
@@ -36,6 +39,7 @@ public class DrillMeshFractureFast : MonoBehaviour
         verts = mesh.vertices;
         normals = mesh.normals;
         originalVerts = mesh.vertices;
+        tris = mesh.triangles;
     }
 
     void OnCollisionStay(Collision collision)
@@ -48,13 +52,13 @@ public class DrillMeshFractureFast : MonoBehaviour
     {
         Vector3 local = transform.InverseTransformPoint(worldPoint);
         float rSqr = deformRadius * deformRadius;
-
         Bounds bounds = new Bounds(local, Vector3.one * deformRadius * 2);
 
         int chunksSpawned = 0;
 
         for (int i = 0; i < verts.Length; i++)
         {
+            if (fracturedVerts.Contains(i)) continue;
             Vector3 v = verts[i];
             if (!bounds.Contains(v)) continue;
 
@@ -64,16 +68,16 @@ public class DrillMeshFractureFast : MonoBehaviour
             float dist = Mathf.Sqrt(distSqr);
             float t = dist / deformRadius;
             float influence = 1f - (t * t * (3f - 2f * t));
-            float noise = Mathf.PerlinNoise(v.x * noiseScale, v.y * noiseScale);
+            float noise = noiseScale > 0 ? Mathf.PerlinNoise(v.x * noiseScale, v.y * noiseScale) : 1f;
 
             Vector3 dir = -normals[i];
             verts[i] += dir * deformStrength * influence * noise;
 
             if ((verts[i] - originalVerts[i]).sqrMagnitude > fractureThreshold * fractureThreshold
-                && !fracturedVerts.Contains(i) && chunksSpawned < maxChunksPerHit)
+                && chunksSpawned < maxChunksPerHit)
             {
-                SpawnChunk(i, worldPoint, normal);
                 fracturedVerts.Add(i);
+                SpawnChunk(i, worldPoint, normal);
                 chunksSpawned++;
             }
         }
@@ -82,28 +86,67 @@ public class DrillMeshFractureFast : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
 
+        if (fracturedVerts.Count > 0)
+            RemoveBrokenTriangles();
+
         colliderTimer += Time.deltaTime;
-        if (Random.Range(0f, 1f) > 0.8f)
+        if (updateCollider && colliderTimer >= colliderUpdateDelay)
         {
-            if (updateCollider && colliderTimer >= colliderUpdateDelay)
-            {
-                colliderTimer = 0;
-                col.sharedMesh = null;
-                col.sharedMesh = mesh;
-            }
+            colliderTimer = 0;
+            col.sharedMesh = null;
+            col.sharedMesh = mesh;
         }
+
+        if ((float)fracturedVerts.Count / verts.Length > destroyPercent)
+            DestroyCompletely();
+    }
+
+    void RemoveBrokenTriangles()
+    {
+        List<int> newTris = new List<int>(tris.Length);
+
+        for (int i = 0; i < tris.Length; i += 3)
+        {
+            int a = tris[i];
+            int b = tris[i + 1];
+            int c = tris[i + 2];
+
+            if (fracturedVerts.Contains(a) || fracturedVerts.Contains(b) || fracturedVerts.Contains(c))
+                continue; // skip triangle that uses a broken vertex
+
+            newTris.Add(a);
+            newTris.Add(b);
+            newTris.Add(c);
+        }
+
+        mesh.triangles = newTris.ToArray();
+        mesh.RecalculateBounds();
     }
 
     void SpawnChunk(int i, Vector3 point, Vector3 normal)
     {
-        if (Random.Range(0f, 1f) < 0.95f) return;
-        GameObject c = Instantiate(gib);
-        c.transform.position = transform.TransformPoint(verts[i]);
-        c.transform.localScale = gib.transform.localScale * chunkSize;
-        Rigidbody rb = c.AddComponent<Rigidbody>();
+        if (gibPrefab == null || Random.value < 0.9f) return;
 
+        GameObject c = Instantiate(gibPrefab);
+        c.transform.position = transform.TransformPoint(verts[i]);
+        c.transform.localScale = gibPrefab.transform.localScale * chunkSize;
+
+        Rigidbody rb = c.AddComponent<Rigidbody>();
         rb.AddForce((verts[i].normalized + normal) * chunkForce, ForceMode.Impulse);
+
         Destroy(c.GetComponent<Collider>(), 5f);
         Destroy(c, 10f);
+    }
+
+    void DestroyCompletely()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            int randomIndex = Random.Range(0, verts.Length);
+            if (!fracturedVerts.Contains(randomIndex))
+                SpawnChunk(randomIndex, transform.position, Vector3.up);
+        }
+
+        Destroy(gameObject, 0.1f);
     }
 }
