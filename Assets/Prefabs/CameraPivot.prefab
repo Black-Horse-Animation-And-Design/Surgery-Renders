@@ -264,10 +264,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8368192196903608943}
-  - component: {fileID: 3251875964873810404}
-  - component: {fileID: 3707487476840463227}
+  - component: {fileID: 3575643987949848109}
+  - component: {fileID: 4531716256083001174}
   m_Layer: 0
-  m_Name: Camera Pivot
+  m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -281,15 +281,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7593551552397267324}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.18716703, z: 0, w: 0.9823281}
-  m_LocalPosition: {x: 0.258, y: 0.039, z: -0.409}
+  m_LocalRotation: {x: -0, y: 0.9873981, z: -0, w: -0.15825619}
+  m_LocalPosition: {x: 111.313675, y: 56.5752, z: 28.169952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7550459666640206268}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 21.575, z: 0}
---- !u!95 &3251875964873810404
+  m_LocalEulerAnglesHint: {x: 0, y: 198.211, z: 0}
+--- !u!95 &3575643987949848109
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3707487476840463227
+--- !u!114 &4531716256083001174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
