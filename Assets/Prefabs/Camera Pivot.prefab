@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617265355701656909}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17022748, y: 0.19451287, z: 0.034297887, w: 0.96540713}
-  m_LocalPosition: {x: -0.214, y: -0.069, z: -0.612}
+  m_LocalRotation: {x: 0.17793281, y: 0.79676527, z: -0.28099877, w: 0.50452435}
+  m_LocalPosition: {x: -61.2, y: 59.1, z: 29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8368192196903608943}
-  m_LocalEulerAnglesHint: {x: -20, y: 22.783, z: 0}
+  m_LocalEulerAnglesHint: {x: 38.853, y: 115.315, z: 0}
 --- !u!20 &2171773410477042709
 Camera:
   m_ObjectHideFlags: 0
@@ -68,7 +68,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -109,8 +109,13 @@ MonoBehaviour:
   screenshotSize: {x: 4096, y: 4096}
   screenshotName: Hi
   pivot: {fileID: 8368192196903608943}
-  rotates: 1
-  rotateSpeed: 0.15
+  rotates: 0
+  moves: 0
+  rotateSpeed: -0.1
+  moveSpeed: 30
+  mouseSensitivity: 100
+  lockCursor: 1
+  smoothTime: 0.1
 --- !u!114 &8684720146095634288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,18 +135,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 2
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
   taaSharpenStrength: 0.5
-  TAAQuality: 1
-  taaSharpenMode: 0
+  TAAQuality: 2
+  taaSharpenMode: 1
   taaRingingReduction: 0
   taaHistorySharpening: 0.35
-  taaAntiFlicker: 0.5
+  taaAntiFlicker: 1
   taaMotionVectorRejection: 0
-  taaAntiHistoryRinging: 0
+  taaAntiHistoryRinging: 1
   taaBaseBlendFactor: 0.875
   taaJitterScale: 1
   physicalParameters:
@@ -259,6 +264,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8368192196903608943}
+  - component: {fileID: 3251875964873810404}
+  - component: {fileID: 3707487476840463227}
   m_Layer: 0
   m_Name: Camera Pivot
   m_TagString: Untagged
@@ -274,11 +281,45 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7593551552397267324}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.18716729, z: -0, w: 0.98232806}
+  m_LocalRotation: {x: 0, y: 0.18716703, z: 0, w: 0.9823281}
   m_LocalPosition: {x: 0.258, y: 0.039, z: -0.409}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7550459666640206268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 21.575, z: 0}
+--- !u!95 &3251875964873810404
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593551552397267324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7c37efc21430054dbc3b55ac164b736, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3707487476840463227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593551552397267324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b478187f288ab14cad063e2910265ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
