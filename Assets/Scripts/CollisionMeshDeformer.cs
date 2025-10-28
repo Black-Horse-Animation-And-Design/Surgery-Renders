@@ -25,6 +25,7 @@ public class DrillMeshFractureFast : MonoBehaviour
     Vector3[] originalVerts;
     HashSet<int> fracturedVerts = new HashSet<int>();
     float colliderTimer;
+    [SerializeField] GameObject gib;
 
     void Start()
     {
@@ -97,11 +98,12 @@ public class DrillMeshFractureFast : MonoBehaviour
 
     void SpawnChunk(int i, Vector3 point, Vector3 normal)
     {
-
-        GameObject c = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        if (Random.Range(0f, 1f) < 0.5f) return;
+        GameObject c = Instantiate(gib);
         c.transform.position = transform.TransformPoint(verts[i]);
-        c.transform.localScale = Vector3.one * chunkSize;
+        c.transform.localScale = gib.transform.localScale * chunkSize;
         Rigidbody rb = c.AddComponent<Rigidbody>();
+
         rb.AddForce((verts[i].normalized + normal) * chunkForce, ForceMode.Impulse);
         Destroy(c.GetComponent<Collider>(), 5f);
         Destroy(c, 10f);
