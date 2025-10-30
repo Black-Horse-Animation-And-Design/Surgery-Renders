@@ -58,14 +58,11 @@ public class DrillMeshFractureFast : MonoBehaviour
             float distSqr = (v - local).sqrMagnitude;
             if (distSqr > rSqr) continue;
 
-            // instant displacement instead of smooth falloff
             float noise = noiseScale > 0 ? Mathf.PerlinNoise(v.x * noiseScale, v.y * noiseScale) : 1f;
             Vector3 dir = -normals[i];
 
-            // make it sharp and strong
             verts[i] += dir * deformStrength * (0.75f + Random.value * 0.5f) * noise;
 
-            // fracture check
             if ((verts[i] - originalVerts[i]).sqrMagnitude > fractureThreshold * fractureThreshold
                 && !fracturedVerts.Contains(i) && chunksSpawned < maxChunksPerHit)
             {

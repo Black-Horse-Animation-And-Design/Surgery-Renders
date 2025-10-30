@@ -37,168 +37,38 @@ MonoBehaviour:
   m_LightingScenarios:
   - Default
   cellDescs:
-    m_Keys: 00000000030000000c00000004000000
-    m_Values:
-    - position: {x: -2, y: -1, z: 1}
-      index: 0
-      probeCount: 320
-      minSubdiv: 1
-      indexChunkCount: 3
-      shChunkCount: 1
-      bricksCount: 5
-      indirectionEntryInfo:
-      - positionInBricks: {x: -54, y: -27, z: 27}
-        minSubdiv: 1
-        minBrickPos: {x: 0, y: 0, z: 0}
-        maxBrickPosPlusOne: {x: 28, y: 28, z: 28}
-        hasMinMax: 1
-        hasOnlyBiggerBricks: 0
-    - position: {x: -2, y: 0, z: 1}
-      index: 3
-      probeCount: 2496
-      minSubdiv: 1
-      indexChunkCount: 3
-      shChunkCount: 1
-      bricksCount: 39
-      indirectionEntryInfo:
-      - positionInBricks: {x: -54, y: 0, z: 27}
-        minSubdiv: 1
-        minBrickPos: {x: 0, y: 0, z: 0}
-        maxBrickPosPlusOne: {x: 28, y: 28, z: 28}
-        hasMinMax: 1
-        hasOnlyBiggerBricks: 0
-    - position: {x: -2, y: 0, z: 2}
-      index: 12
-      probeCount: 320
-      minSubdiv: 1
-      indexChunkCount: 3
-      shChunkCount: 1
-      bricksCount: 5
-      indirectionEntryInfo:
-      - positionInBricks: {x: -54, y: 0, z: 54}
-        minSubdiv: 1
-        minBrickPos: {x: 0, y: 0, z: 0}
-        maxBrickPosPlusOne: {x: 28, y: 28, z: 28}
-        hasMinMax: 1
-        hasOnlyBiggerBricks: 0
-    - position: {x: -1, y: 0, z: 1}
-      index: 4
-      probeCount: 320
-      minSubdiv: 1
-      indexChunkCount: 3
-      shChunkCount: 1
-      bricksCount: 5
-      indirectionEntryInfo:
-      - positionInBricks: {x: -27, y: 0, z: 27}
-        minSubdiv: 1
-        minBrickPos: {x: 0, y: 0, z: 0}
-        maxBrickPosPlusOne: {x: 28, y: 28, z: 28}
-        hasMinMax: 1
-        hasOnlyBiggerBricks: 0
+    m_Keys: 
+    m_Values: []
   m_SerializedPerSceneCellList:
   - sceneGUID: 6a246339df007764ab674b7ae2dcd5f9
-    cellList: 00000000030000000c00000004000000
+    cellList: 
   cellSharedDataAsset:
-    m_AssetGUID: 5cb5523cc6fd4094c9d4a0e2ac8ba13e
-    m_StreamableAssetPath: APVStreamingAssets\418dc9a4bae64fe40b45512bddd70f6d\5cb5523cc6fd4094c9d4a0e2ac8ba13e.bytes
-    m_ElementSize: 8192
+    m_AssetGUID: 
+    m_StreamableAssetPath: 
+    m_ElementSize: 0
     m_StreamableCellDescs:
-      m_Keys: 00000000030000000c00000004000000
-      m_Values:
-      - offset: 0
-        elementCount: 1
-      - offset: 8192
-        elementCount: 1
-      - offset: 16384
-        elementCount: 1
-      - offset: 24576
-        elementCount: 1
-    m_Asset: {fileID: 4900000, guid: 5cb5523cc6fd4094c9d4a0e2ac8ba13e, type: 3}
+      m_Keys: 
+      m_Values: []
+    m_Asset: {fileID: 0}
   scenarios:
-    m_Keys:
-    - Default
-    m_Values:
-    - sceneHash: -1716721592
-      cellDataAsset:
-        m_AssetGUID: fdaa7aed53b502647be7948f2a8954ba
-        m_StreamableAssetPath: APVStreamingAssets\418dc9a4bae64fe40b45512bddd70f6d\fdaa7aed53b502647be7948f2a8954ba.bytes
-        m_ElementSize: 131072
-        m_StreamableCellDescs:
-          m_Keys: 00000000030000000c00000004000000
-          m_Values:
-          - offset: 0
-            elementCount: 1
-          - offset: 131072
-            elementCount: 1
-          - offset: 262144
-            elementCount: 1
-          - offset: 393216
-            elementCount: 1
-        m_Asset: {fileID: 4900000, guid: fdaa7aed53b502647be7948f2a8954ba, type: 3}
-      cellOptionalDataAsset:
-        m_AssetGUID: 0c91245aabb791e4badc35e30dce0e05
-        m_StreamableAssetPath: APVStreamingAssets\418dc9a4bae64fe40b45512bddd70f6d\0c91245aabb791e4badc35e30dce0e05.bytes
-        m_ElementSize: 131072
-        m_StreamableCellDescs:
-          m_Keys: 00000000030000000c00000004000000
-          m_Values:
-          - offset: 0
-            elementCount: 1
-          - offset: 131072
-            elementCount: 1
-          - offset: 262144
-            elementCount: 1
-          - offset: 393216
-            elementCount: 1
-        m_Asset: {fileID: 4900000, guid: 0c91245aabb791e4badc35e30dce0e05, type: 3}
-      cellProbeOcclusionDataAsset:
-        m_AssetGUID: 
-        m_StreamableAssetPath: APVStreamingAssets\418dc9a4bae64fe40b45512bddd70f6d\.bytes
-        m_ElementSize: 0
-        m_StreamableCellDescs:
-          m_Keys: 00000000030000000c00000004000000
-          m_Values:
-          - offset: 0
-            elementCount: 1
-          - offset: 0
-            elementCount: 1
-          - offset: 0
-            elementCount: 1
-          - offset: 0
-            elementCount: 1
-        m_Asset: {fileID: 0}
+    m_Keys: []
+    m_Values: []
   cellBricksDataAsset:
-    m_AssetGUID: d9ddae785febd4543bfcec9d56764767
-    m_StreamableAssetPath: APVStreamingAssets\418dc9a4bae64fe40b45512bddd70f6d\d9ddae785febd4543bfcec9d56764767.bytes
-    m_ElementSize: 16
+    m_AssetGUID: 
+    m_StreamableAssetPath: 
+    m_ElementSize: 0
     m_StreamableCellDescs:
-      m_Keys: 00000000030000000c00000004000000
-      m_Values:
-      - offset: 0
-        elementCount: 5
-      - offset: 80
-        elementCount: 39
-      - offset: 704
-        elementCount: 5
-      - offset: 784
-        elementCount: 5
-    m_Asset: {fileID: 4900000, guid: d9ddae785febd4543bfcec9d56764767, type: 3}
+      m_Keys: 
+      m_Values: []
+    m_Asset: {fileID: 0}
   cellSupportDataAsset:
-    m_AssetGUID: 433491a736718ef408d903eed36db886
-    m_StreamableAssetPath: APVStreamingAssets\418dc9a4bae64fe40b45512bddd70f6d\433491a736718ef408d903eed36db886.bytes
-    m_ElementSize: 262144
+    m_AssetGUID: 
+    m_StreamableAssetPath: 
+    m_ElementSize: 0
     m_StreamableCellDescs:
-      m_Keys: 00000000030000000c00000004000000
-      m_Values:
-      - offset: 0
-        elementCount: 1
-      - offset: 262144
-        elementCount: 1
-      - offset: 524288
-        elementCount: 1
-      - offset: 786432
-        elementCount: 1
-    m_Asset: {fileID: 4900000, guid: 433491a736718ef408d903eed36db886, type: 3}
+      m_Keys: 
+      m_Values: []
+    m_Asset: {fileID: 0}
   chunkSizeInBricks: 128
   maxCellPosition: {x: 0, y: 1, z: 3}
   minCellPosition: {x: -2, y: -1, z: 1}
