@@ -41,6 +41,7 @@ public class DrillMeshFractureFast : MonoBehaviour
     void OnCollisionStay(Collision collision)
     {
         if (collision.collider.tag != "Drill") return;
+
         foreach (var contact in collision.contacts)
             Deform(contact.point, contact.normal);
     }
