@@ -3,7 +3,8 @@ using UnityEngine;
 public class VisiblitySwapAnimation : MonoBehaviour
 {
     [SerializeField] GameObject[] objectsToToggle;
-    int index = 1;
+    int index = 0;
+    [SerializeField] GameObject gibToToggle;
 
     [SerializeField] bool stops;
 
@@ -22,5 +23,7 @@ public class VisiblitySwapAnimation : MonoBehaviour
         objectsToToggle[index].SetActive(false);
         index++;
         objectsToToggle[index].SetActive(true);
+
     }
+
 }
