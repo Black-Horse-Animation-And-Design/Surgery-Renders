@@ -7,6 +7,15 @@ public class VisiblitySwapAnimation : MonoBehaviour
 
     [SerializeField] bool stops;
 
+    private void Start()
+    {
+        objectsToToggle[0].SetActive(true);
+        for (int i = 1; i < objectsToToggle.Length; i++)
+        {
+            objectsToToggle[i].SetActive(false);
+        }
+    }
+
     public void ToggleObjects()
     {
         if (index >= objectsToToggle.Length) return;
