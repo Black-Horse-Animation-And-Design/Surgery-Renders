@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedBakingSet: {fileID: 11400000, guid: 418dc9a4bae64fe40b45512bddd70f6d, type: 2}
-  sceneGUID: 6a246339df007764ab674b7ae2dcd5f9
+  sceneGUID: 8e1ff59c01b078b449e7775a564baf25
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}
@@ -5732,7 +5732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5206967260703598309, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
       propertyPath: m_RayTraceProcedural
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5206967260703598309, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

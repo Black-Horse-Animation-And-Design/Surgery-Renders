@@ -315,6 +315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 5
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!54 &34670083
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2077,6 +2081,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 15
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!54 &496719387
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3200,6 +3208,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 5
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!54 &659443280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3358,6 +3370,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 5
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!54 &716865740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5678,6 +5694,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 5
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!54 &1126032637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7933,18 +7953,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1003640196}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4278631629069975755, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1147594058}
-    - targetCorrespondingSourceObject: {fileID: 4278631629069975755, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1147594057}
-    - targetCorrespondingSourceObject: {fileID: 3889909291956794555, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1305506789}
-    - targetCorrespondingSourceObject: {fileID: 3889909291956794555, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1305506788}
     - targetCorrespondingSourceObject: {fileID: -3128449630324911082, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1309367282}
@@ -7968,55 +7976,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -3076524571064740877, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
   m_PrefabInstance: {fileID: 1147594053}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1147594056 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4278631629069975755, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-  m_PrefabInstance: {fileID: 1147594053}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1147594057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147594056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156525d93eafcc045b3ec069cc5000ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DrillMeshFractureFast
-  deformRadius: 2.5
-  deformStrength: 0.2
-  noiseScale: 0.2
-  updateCollider: 0
-  colliderUpdateDelay: 0.5
-  fractureThreshold: 0.2
-  chunkSize: 0.08
-  chunkForce: 6
-  maxChunksPerHit: 3
-  gib: {fileID: 7587070649313846008, guid: 791ebbfc99b556d4a8133b86cde56834, type: 3}
---- !u!64 &1147594058
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147594056}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2707942265286441016, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
 --- !u!1 &1158212118 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4086773885500225805, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
@@ -8103,55 +8062,6 @@ Transform:
   - {fileID: 491992084}
   m_Father: {fileID: 1147594055}
   m_LocalEulerAnglesHint: {x: -13.23, y: -212.687, z: -79.279}
---- !u!1 &1305506787 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3889909291956794555, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
-  m_PrefabInstance: {fileID: 1147594053}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1305506788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305506787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156525d93eafcc045b3ec069cc5000ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DrillMeshFractureFast
-  deformRadius: 2.5
-  deformStrength: 0.2
-  noiseScale: 0.2
-  updateCollider: 0
-  colliderUpdateDelay: 0.5
-  fractureThreshold: 0.2
-  chunkSize: 0.08
-  chunkForce: 6
-  maxChunksPerHit: 3
-  gib: {fileID: 7587070649313846008, guid: 791ebbfc99b556d4a8133b86cde56834, type: 3}
---- !u!64 &1305506789
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305506787}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1155945346752864243, guid: 5a8f609944995c141babd3dab7bebc8a, type: 3}
 --- !u!114 &1309367281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8538,6 +8448,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 5
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!54 &1347164086
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9554,6 +9468,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 5
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!54 &1702921718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11945,6 +11863,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   spinStrength: 5
+  timeToFullSpeed: 1
+  targetMesh: {fileID: 0}
+  triggerDistance: 2
+  nearestVerticesCount: 1000
 --- !u!1 &2105849131
 GameObject:
   m_ObjectHideFlags: 0

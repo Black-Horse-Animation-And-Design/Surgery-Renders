@@ -204,6 +204,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &1954000242278974683
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BurrSpinL4
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 7852a6d090c4f494887f6a572d2c2338, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1107 &2599679187795761493
 AnimatorStateMachine:
   serializedVersion: 6
@@ -243,6 +269,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8016292883452480492}
     m_Position: {x: 50, y: 600, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1954000242278974683}
+    m_Position: {x: 299.59833, y: -48.33142, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -252,7 +281,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 4464222387687732835}
+  m_DefaultState: {fileID: 1954000242278974683}
 --- !u!1102 &4464222387687732835
 AnimatorState:
   serializedVersion: 6
