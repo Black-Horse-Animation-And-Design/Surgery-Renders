@@ -87,7 +87,7 @@ public class DrillMeshFractureFast : MonoBehaviour
 
     void SpawnChunk(int i, Vector3 point, Vector3 normal)
     {
-        if (gib == null || Random.Range(0f, 1f) < 0.9f) return;
+        if (gib == null || Random.Range(0f, 1f) < 0.95f) return;
 
         GameObject c = Instantiate(gib);
         c.transform.position = transform.TransformPoint(verts[i]);
