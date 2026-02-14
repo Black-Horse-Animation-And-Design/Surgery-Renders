@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ef2681fa3dc8c4fa031f044e68c63f, type: 3}
   m_Name: GlobalIllumination
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.GlobalIllumination
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 0
     m_Value: 3
@@ -253,7 +253,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
   focusMode:
     m_OverrideState: 1
     m_Value: 1
@@ -277,19 +277,19 @@ MonoBehaviour:
     m_Value: 20
   m_NearSampleCount:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 5
   m_NearMaxBlur:
     m_OverrideState: 1
-    m_Value: 7
+    m_Value: 4
   m_FarSampleCount:
     m_OverrideState: 1
-    m_Value: 14
+    m_Value: 7
   m_FarMaxBlur:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 8
   m_Resolution:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   m_HighQualityFiltering:
     m_OverrideState: 1
     m_Value: 1
@@ -305,6 +305,66 @@ MonoBehaviour:
   coCStabilization:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &-4235047585108231607
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31394aa05878563408489d5c1688f3a0, type: 3}
+  m_Name: PathTracing
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.PathTracing
+  active: 0
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  layerMask:
+    m_OverrideState: 1
+    m_Value:
+      serializedVersion: 2
+      m_Bits: 4294967295
+  maximumSamples:
+    m_OverrideState: 1
+    m_Value: 16384
+  minimumDepth:
+    m_OverrideState: 1
+    m_Value: 1
+  maximumDepth:
+    m_OverrideState: 1
+    m_Value: 4
+  maximumIntensity:
+    m_OverrideState: 1
+    m_Value: 10
+  denoising:
+    m_OverrideState: 1
+    m_Value: 1
+  useAOVs:
+    m_OverrideState: 1
+    m_Value: 1
+  temporal:
+    m_OverrideState: 0
+    m_Value: 0
+  separateVolumetrics:
+    m_OverrideState: 0
+    m_Value: 0
+  asyncDenoising:
+    m_OverrideState: 0
+    m_Value: 1
+  skyImportanceSampling:
+    m_OverrideState: 0
+    m_Value: 0
+  tilingParameters:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 0, w: 0}
+  seedMode:
+    m_OverrideState: 0
+    m_Value: 0
+  customSeed:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-1866113274772182072
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -453,6 +513,7 @@ MonoBehaviour:
   - {fileID: 6296835899382315719}
   - {fileID: 8297126536639290450}
   - {fileID: -7907003195353393865}
+  - {fileID: -4235047585108231607}
 --- !u!114 &558024947465833017
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -582,10 +643,10 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 1.2
+    m_Value: 1
   contrast:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 0
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -594,7 +655,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 5
 --- !u!114 &2485448172324021586
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -864,7 +925,7 @@ MonoBehaviour:
   active: 1
   indirectDiffuseLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 2
   indirectDiffuseLightingLayers:
     m_OverrideState: 0
     m_Value: 65535
