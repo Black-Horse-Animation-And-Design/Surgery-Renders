@@ -174,7 +174,7 @@ Material:
     - _BlendMode: 0
     - _ClearCoatEnabled: 1
     - _CoatMask: 0.309
-    - _Coat_Mask: 0.309
+    - _Coat_Mask: 0.33
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -217,7 +217,7 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
-    - _Mask_Strength: 1
+    - _Mask_Strength: 0.76
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _MaxAlpha: 1
