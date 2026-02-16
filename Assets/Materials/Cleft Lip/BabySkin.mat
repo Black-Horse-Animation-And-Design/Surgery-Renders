@@ -225,7 +225,11 @@ Material:
     - _Metallic: 0
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
+<<<<<<< Updated upstream
     - _MinDistance: 7
+=======
+    - _MinDistance: 5
+>>>>>>> Stashed changes
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _ObjectSpaceUVMapping: 0
