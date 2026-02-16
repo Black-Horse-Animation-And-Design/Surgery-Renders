@@ -43,9 +43,9 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
-  - TransparentDepthPostpass
-  - TransparentBackface
   - RayTracingPrepass
+  - TransparentBackface
+  - TransparentDepthPostpass
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3

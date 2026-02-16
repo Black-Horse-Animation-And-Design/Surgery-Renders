@@ -1110,6 +1110,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8684720146095634288, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: clearColorMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684720146095634288, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: backgroundColorHDR.b
+      value: 0.6830188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684720146095634288, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: backgroundColorHDR.g
+      value: 0.6830188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684720146095634288, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
+      propertyPath: backgroundColorHDR.r
+      value: 0.6830188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684720146095634288, guid: 7d1c249f59e8bc34aaa4f3357b1aa365, type: 3}
       propertyPath: fullscreenPassthrough
       value: 0
       objectReference: {fileID: 0}
