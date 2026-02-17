@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BabySkin
+  m_Name: BlackInner
   m_Shader: {fileID: -6465566751694194690, guid: c5cee514a8b9c41419f9625a2344d97a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -46,7 +46,7 @@ Material:
   - RayTracingPrepass
   - TransparentBackface
   - TransparentDepthPostpass
-  m_LockedProperties: 
+  m_LockedProperties: _BlendMode
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -95,11 +95,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainText:
-        m_Texture: {fileID: 2800000, guid: bf0dcaea10790f840a4356514b1491b5, type: 3}
+        m_Texture: {fileID: 2800000, guid: d2ceca25ee85e2543b48aff3acd3c289, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: 81baafe3f9516f146b8512e03ddb395d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 97a530df8feec564c848badf1878df85, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -174,7 +174,7 @@ Material:
     - _BlendMode: 0
     - _ClearCoatEnabled: 1
     - _CoatMask: 0.309
-    - _Coat_Mask: 0.33
+    - _Coat_Mask: 0
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -202,7 +202,7 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _ExcludeFromTUAndAA: 0
-    - _Glossiness: 0.64
+    - _Glossiness: 0
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -217,7 +217,7 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
-    - _Mask_Strength: 0.76
+    - _Mask_Strength: 1
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _MaxAlpha: 1
@@ -286,7 +286,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
