@@ -68,7 +68,7 @@ Material:
     - _InvTilingScale: 1
     - _Metallic: 0.2
     - _OpaqueCullMode: 2
-    - _Smoothness: 0.76
+    - _Smoothness: 0.437
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
