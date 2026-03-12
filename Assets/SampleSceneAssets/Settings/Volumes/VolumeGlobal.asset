@@ -548,7 +548,7 @@ MonoBehaviour:
   active: 1
   enable:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   layerMask:
     m_OverrideState: 1
     m_Value:
@@ -556,19 +556,19 @@ MonoBehaviour:
       m_Bits: 4294967295
   maximumSamples:
     m_OverrideState: 1
-    m_Value: 256
+    m_Value: 2024
   minimumDepth:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   maximumDepth:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 8
   maximumIntensity:
     m_OverrideState: 1
     m_Value: 10
   denoising:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   useAOVs:
     m_OverrideState: 1
     m_Value: 1
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384c4d03a551c44448145f4093304119, type: 3}
   m_Name: ScreenSpaceReflection
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ScreenSpaceReflection
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 1
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.75
+    m_Value: 0
   contrast:
     m_OverrideState: 1
     m_Value: 0
@@ -1627,7 +1627,7 @@ MonoBehaviour:
     m_Value: 65535
   reflectionLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
   reflectionLightingLayers:
     m_OverrideState: 1
     m_Value: 65535
@@ -1658,7 +1658,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 14.161164
+    m_Value: 12
   compensation:
     m_OverrideState: 1
     m_Value: 0

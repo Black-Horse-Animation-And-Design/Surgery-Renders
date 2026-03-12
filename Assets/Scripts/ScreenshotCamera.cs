@@ -15,7 +15,7 @@ public class ScreenshotCamera : MonoBehaviour
     [SerializeField] float rotateSpeed = .2f, moveSpeed = 5f;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] bool lockCursor = true;
-    [SerializeField] float smoothTime = 0.1f; // Smooth movement time
+    [SerializeField] float smoothTime = 0.1f;
 
     Vector3 input;
     Vector3 currentVelocity;
@@ -45,7 +45,7 @@ public class ScreenshotCamera : MonoBehaviour
         HandleMovementInput();
         HandleMouseLook();
 
-        if (Input.GetKeyDown(KeyCode.P)) // Example key for screenshot
+        if (Input.GetKeyDown(KeyCode.P))
             TakeScreenshot();
     }
 
